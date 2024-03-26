@@ -1,0 +1,170 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap");
+@import "./normalize.css";
+
+.page {
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+  background: black;
+}
+
+.header__title {
+  margin: 0;
+  margin-bottom: 54px;
+  color: white;
+  font-weight: 900;
+  font-size: 60px;
+  text-align: center;
+}
+
+.todos {
+  width: 700px;
+  margin: 0 auto;
+  padding: 96px 0 12px;
+}
+
+.todo-form {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.todo-form__input {
+  flex-grow: 1;
+  border: none;
+  border-radius: 5px;
+  padding: 21px;
+  font-family: "Inter", sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  font-style: normal;
+  background: white;
+}
+
+.todo-form__submit-btn {
+  margin-left: 10px;
+  border: none;
+  border-radius: 5px;
+  padding: 21px;
+  font-family: "Inter", sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  font-style: normal;
+  background: white;
+  cursor: pointer;
+}
+
+.todos__list {
+  width: 700px;
+  margin: 0 auto;
+  padding: 96px 0 12px;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  border: 1px solid #6f6f6f;
+  border-radius: 5px;
+  padding: 40px;
+}
+
+.todo-item__text {
+  flex-grow: 1;
+  color: white;
+  font-family: "Inter", sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  font-style: normal;
+}
+
+.todo-item__copy {
+  width: 24px;
+  height: 24px;
+  margin-left: 30px;
+  border: none;
+  background: url("../images/copy.svg") no-repeat center;
+  background-size: 24px 24px;
+  cursor: pointer;
+}
+
+.todo-item__del {
+  width: 24px;
+  height: 24px;
+  margin-left: 30px;
+  border: none;
+  background: url("../images/del.svg") no-repeat center;
+  background-size: 20px 20px;
+  cursor: pointer;
+}
+
+.todo-item__edit {
+  width: 24px;
+  height: 24px;
+  margin-left: 30px;
+  border: none;
+  background: url("../images/edit.svg") no-repeat center;
+  background-size: 20px 20px;
+  cursor: pointer;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  /*Стили для плавного появления модалки*/
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  font-family: "Inter", Arial, sans-serif;
+  background-color: rgba(0, 0, 0, 0.7);
+  transition: visibility 0.3s, opacity 0.3s;
+  pointer-events: none;
+  user-select: none;
+}
+
+.popup_is-opened {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: all;
+}
+
+.popup__close {
+  position: absolute;
+  top: -36px;
+  right: -34px;
+  width: 35px;
+  height: 35px;
+  margin: 0;
+  border: none;
+  padding: 0;
+  background: transparent url("../images/close.svg") center no-repeat;
+  background-size: 35px 35px;
+  transition: visibility 0s, opacity 0.3s;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+  cursor: pointer;
+}
+
+.popup__close:hover {
+  opacity: 0.6;
+}
+
+.popup__container {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 700px;
+  min-height: 100px;
+  border: white 2px solid;
+  border-radius: 10px;
+  padding: 34px 36px;
+  background-color: rgb(55, 54, 54);
+}
