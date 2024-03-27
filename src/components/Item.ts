@@ -5,7 +5,8 @@ export interface IViewItem {
   name: string;
   render(item: IItem): HTMLElement;
   setCopyHandler(handleCopyItem: Function): void;
-  setDeletedHandler(handleDeleteitem: Function): void;
+  setDeletedHandler(handleDeleteItem: Function): void;
+  setEditHandler(handleEditItem: Function): void;
 }
 
 export interface IViewConstructor {
@@ -19,7 +20,9 @@ export class Item implements IViewItem {
   protected copyButton: HTMLButtonElement;
   protected handleCopyItem: Function;
   protected deleteButton: HTMLButtonElement;
-  protected handleDeleteitem: Function;
+  protected handleDeleteItem: Function;
+  protected editButton: HTMLButtonElement;
+  protected handleEditItem: Function;
 
   constructor(template: HTMLTemplateElement) {
     this.itemElement = template.content
@@ -28,6 +31,7 @@ export class Item implements IViewItem {
     this.title = this.itemElement.querySelector(".todo-item__text");
     this.copyButton = this.itemElement.querySelector(".todo-item__copy");
     this.deleteButton = this.itemElement.querySelector(".todo-item__del");
+    this.editButton = this.itemElement.querySelector(".todo-item__edit");
   }
 
   set id(value: string) {
@@ -53,10 +57,17 @@ export class Item implements IViewItem {
     });
   }
 
-  setDeletedHandler(handleDeleteitem: Function) {
-    this.handleDeleteitem = handleDeleteitem;
+  setDeletedHandler(handleDeleteItem: Function) {
+    this.handleDeleteItem = handleDeleteItem;
     this.deleteButton.addEventListener("click", (evt) => {
-      this.handleDeleteitem(this);
+      this.handleDeleteItem(this);
+    });
+  }
+
+  setEditHandler(handleEditItem: Function) {
+    this.handleEditItem = handleEditItem;
+    this.editButton.addEventListener("click", (evt) => {
+      this.handleEditItem(this);
     });
   }
 
