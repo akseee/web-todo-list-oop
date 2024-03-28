@@ -1,7 +1,8 @@
-export interface IForm {
+import { EventEmitter, IEvent } from "./EventEmitter";
+
+export interface IForm extends IEvent {
   buttonText: string;
   placeholder: string;
-  setHandler(handleFormSubmit: Function): void;
   render(): HTMLFormElement;
   setValue(data: string): void;
   getValue(): string;
@@ -12,26 +13,26 @@ export interface IFormConstructor {
   new (formTemplate: HTMLTemplateElement): IForm;
 }
 
-export class Form implements IForm {
+export class Form extends EventEmitter implements IForm {
   protected formElement: HTMLFormElement;
   protected inputField: HTMLInputElement;
-  protected handleFormSubmit: Function;
   protected submitButton: HTMLButtonElement;
 
   constructor(formTemplate: HTMLTemplateElement) {
+    super();
     this.formElement = formTemplate.content
       .querySelector(".todos__form")
       .cloneNode(true) as HTMLFormElement;
 
     this.inputField = this.formElement.querySelector(".todo-form__input");
+    this.submitButton = this.formElement.querySelector(
+      ".todo-form__submit-btn"
+    );
+
     this.formElement.addEventListener("submit", (evt) => {
       evt.preventDefault();
-      this.handleFormSubmit(this.inputField.value);
+      this.emit("submit", { value: this.inputField.value });
     });
-  }
-
-  setHandler(handleFormSubmit: Function) {
-    this.handleFormSubmit = handleFormSubmit;
   }
 
   render() {

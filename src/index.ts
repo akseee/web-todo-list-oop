@@ -8,7 +8,6 @@ import { Page } from "./components/Page";
 import { Popup } from "./components/Popup";
 
 const contentElement = document.querySelector(".content") as HTMLElement;
-
 const popupElement = document.querySelector(".popup") as HTMLElement;
 
 const pageContainer = new Page(contentElement);

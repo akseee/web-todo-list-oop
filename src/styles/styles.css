@@ -8,8 +8,7 @@
 }
 
 .header__title {
-  margin: 0;
-  margin-bottom: 54px;
+  margin: 50px 0 50px 0;
   color: white;
   font-weight: 900;
   font-size: 60px;
@@ -19,12 +18,11 @@
 .todos {
   width: 700px;
   margin: 0 auto;
-  padding: 96px 0 12px;
+  padding: 70px 0 12px;
 }
 
-.todo-form {
+.todos__form {
   display: flex;
-  margin-bottom: 30px;
 }
 
 .todo-form__input {
@@ -50,6 +48,11 @@
   font-style: normal;
   background: white;
   cursor: pointer;
+}
+
+.todo-form__submit-btn:hover {
+  background-color: grey;
+  transition: background-color 0.2s ease-in;
 }
 
 .todos__list {
