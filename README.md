@@ -1,6 +1,8 @@
-# Практическая работа "Todo List"
+# Todo List with OOP
 
 Стек: HTML, SCSS, TS, Webpack
+
+[Deploy](https://to-do-with-oop.netlify.app/)
 
 Структура проекта:
 
